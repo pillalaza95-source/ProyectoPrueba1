@@ -1,0 +1,23 @@
+<svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ClinicPet Logo</title>
+  <desc id="desc">Logo circular con una huella de mascota y símbolo de cuidado</desc>
+  <defs>
+    <linearGradient id="grad1" x1="24" y1="20" x2="190" y2="190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#18A7A0"/>
+      <stop offset="1" stop-color="#0F6D78"/>
+    </linearGradient>
+    <linearGradient id="grad2" x1="65" y1="52" x2="170" y2="170" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD166"/>
+      <stop offset="1" stop-color="#F7A600"/>
+    </linearGradient>
+  </defs>
+  <circle cx="110" cy="110" r="96" fill="url(#grad1)"/>
+  <circle cx="110" cy="110" r="78" fill="white" fill-opacity="0.14"/>
+  <circle cx="110" cy="82" r="15" fill="url(#grad2)"/>
+  <path d="M70 95C58 82 45 78 35 86C46 100 53 114 57 130C72 129 82 122 89 108L70 95Z" fill="url(#grad2)"/>
+  <path d="M150 95C162 82 175 78 185 86C174 100 167 114 163 130C148 129 138 122 131 108L150 95Z" fill="url(#grad2)"/>
+  <path d="M87 111C76 111 66 120 66 132C66 144 76 154 90 154H130C144 154 154 144 154 132C154 120 144 111 133 111H87Z" fill="url(#grad2)"/>
+  <circle cx="74" cy="95" r="9" fill="white" fill-opacity="0.82"/>
+  <circle cx="146" cy="95" r="9" fill="white" fill-opacity="0.82"/>
+  <path d="M91 146C99 156 107 160 110 160C113 160 121 156 129 146V168C129 180 120 190 110 190C100 190 91 180 91 168V146Z" fill="#EAFBFF"/>
+</svg>
