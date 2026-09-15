@@ -765,6 +765,22 @@ body.modal-open {
     color: var(--text);
   }
 
+  .services,
+  .location-section,
+  .form-section,
+  .schedule-section {
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  .intro {
+    background: linear-gradient(180deg, rgba(79, 201, 192, 0.08), rgba(18, 26, 35, 0));
+  }
+
+  .schedule-section {
+    background: linear-gradient(180deg, #1c2a2f 0%, var(--bg) 100%);
+  }
+
   .button.secondary {
     border-color: var(--border);
     background: transparent;
@@ -790,9 +806,30 @@ body.modal-open {
   input,
   select,
   textarea {
-    background: rgba(255, 255, 255, 0.02);
+    background: #1f3039;
     border-color: var(--border);
     color: var(--text);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #a8bbc4;
+    opacity: 1;
+  }
+
+  .choices label,
+  .checkbox-inline {
+    color: var(--text);
+  }
+
+  .card-badge {
+    background: rgba(245, 185, 66, 0.2);
+    color: #ffd978;
+  }
+
+  .hero-stats li {
+    background: rgba(31, 48, 57, 0.82);
+    border-color: var(--border);
   }
 
   .reservation-dialog {
