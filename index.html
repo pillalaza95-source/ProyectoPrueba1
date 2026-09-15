@@ -60,7 +60,9 @@
             </p>
 
             <div class="cta-row">
-              <a class="button primary" href="#formulario">Agendar consulta</a>
+              <button type="button" class="button primary" data-open-modal aria-controls="reservaModal" aria-expanded="false">
+                Agendar consulta
+              </button>
               <a class="button secondary" href="#servicios">Ver servicios</a>
             </div>
 
@@ -172,276 +174,283 @@
         </div>
       </section>
 
-      <section id="formulario" class="section form-section">
-        <div class="container">
-          <div class="heading-row">
-            <div>
-              <p class="section-tag">Formulario</p>
-              <h2>Solicita una cita o reserva de atención</h2>
-            </div>
-            <p class="helper-text">Todos los campos marcados con * son obligatorios.</p>
-          </div>
+      <div class="reservation-modal" id="reservaModal" aria-hidden="true">
+        <div class="reservation-backdrop" data-close-modal></div>
+        <div class="reservation-dialog" role="dialog" aria-modal="true" aria-labelledby="reservaTitulo">
+          <button type="button" class="modal-close" data-close-modal aria-label="Cerrar formulario">×</button>
 
-          <form class="clinic-form" action="#" method="get">
-            <fieldset>
-              <legend>Datos del tutor</legend>
-
-              <div class="field-grid">
-                <div class="field">
-                  <label for="nombre-completo">Nombre completo *</label>
-                  <input
-                    id="nombre-completo"
-                    name="nombre-completo"
-                    type="text"
-                    required
-                    minlength="3"
-                    maxlength="80"
-                    autocomplete="name"
-                    aria-describedby="nombre-ayuda"
-                  />
-                  <small id="nombre-ayuda">Escribe tu nombre completo.</small>
+          <section id="formulario" class="section form-section reservation-form-section">
+            <div class="container">
+              <div class="heading-row">
+                <div>
+                  <p class="section-tag">Formulario</p>
+                  <h2 id="reservaTitulo">Solicita una cita o reserva de atención</h2>
                 </div>
-
-                <div class="field">
-                  <label for="correo">Correo electrónico *</label>
-                  <input
-                    id="correo"
-                    name="correo"
-                    type="email"
-                    required
-                    maxlength="120"
-                    autocomplete="email"
-                    inputmode="email"
-                  />
-                </div>
-
-                <div class="field">
-                  <label for="telefono">Teléfono *</label>
-                  <input
-                    id="telefono"
-                    name="telefono"
-                    type="tel"
-                    required
-                    pattern="[0-9+()\s-]{9,20}"
-                    maxlength="20"
-                    autocomplete="tel"
-                    inputmode="tel"
-                  />
-                </div>
-
-                <div class="field">
-                  <label for="ciudad">Ciudad o barrio *</label>
-                  <input
-                    id="ciudad"
-                    name="ciudad"
-                    type="text"
-                    required
-                    minlength="3"
-                    maxlength="60"
-                    autocomplete="address-level2"
-                  />
-                </div>
+                <p class="helper-text">Todos los campos marcados con * son obligatorios.</p>
               </div>
-            </fieldset>
 
-            <fieldset>
-              <legend>Datos de la mascota</legend>
+              <form class="clinic-form" action="#" method="get">
+                <fieldset>
+                  <legend>Datos del tutor</legend>
 
-              <div class="field-grid">
-                <div class="field">
-                  <label for="mascota-nombre">Nombre de la mascota *</label>
-                  <input
-                    id="mascota-nombre"
-                    name="mascota-nombre"
-                    type="text"
-                    required
-                    minlength="2"
-                    maxlength="40"
-                  />
-                </div>
+                  <div class="field-grid">
+                    <div class="field">
+                      <label for="nombre-completo">Nombre completo *</label>
+                      <input
+                        id="nombre-completo"
+                        name="nombre-completo"
+                        type="text"
+                        required
+                        minlength="3"
+                        maxlength="80"
+                        autocomplete="name"
+                        aria-describedby="nombre-ayuda"
+                      />
+                      <small id="nombre-ayuda">Escribe tu nombre completo.</small>
+                    </div>
 
-                <div class="field">
-                  <label for="tipo-mascota">Tipo de mascota *</label>
-                  <select id="tipo-mascota" name="tipo-mascota" required>
-                    <option value="">Selecciona una opción</option>
-                    <option value="perro">Perro</option>
-                    <option value="gato">Gato</option>
-                    <option value="conejo">Conejo</option>
-                    <option value="ave">Ave</option>
-                    <option value="otro">Otro</option>
-                  </select>
-                </div>
+                    <div class="field">
+                      <label for="correo">Correo electrónico *</label>
+                      <input
+                        id="correo"
+                        name="correo"
+                        type="email"
+                        required
+                        maxlength="120"
+                        autocomplete="email"
+                        inputmode="email"
+                      />
+                    </div>
 
-                <div class="field">
-                  <label for="edad-mascota">Edad de la mascota *</label>
-                  <input
-                    id="edad-mascota"
-                    name="edad-mascota"
-                    type="number"
-                    min="0"
-                    max="30"
-                    step="1"
-                    required
-                  />
-                </div>
+                    <div class="field">
+                      <label for="telefono">Teléfono *</label>
+                      <input
+                        id="telefono"
+                        name="telefono"
+                        type="tel"
+                        required
+                        pattern="[0-9+()\s-]{9,20}"
+                        maxlength="20"
+                        autocomplete="tel"
+                        inputmode="tel"
+                      />
+                    </div>
 
-                <div class="field">
-                  <label for="fecha-nacimiento">Fecha de nacimiento</label>
-                  <input id="fecha-nacimiento" name="fecha-nacimiento" type="date" />
-                </div>
-
-                <div class="field">
-                  <label for="hora-llegada">Hora de llegada *</label>
-                  <input id="hora-llegada" name="hora-llegada" type="time" required />
-                </div>
-
-                <div class="field">
-                  <label for="peso">Peso aproximado (kg)</label>
-                  <input id="peso" name="peso" type="number" min="0.1" max="200" step="0.1" />
-                </div>
-
-                <div class="field field-full">
-                  <label for="perfil-mascota">Perfil de la mascota o historial breve</label>
-                  <input
-                    id="perfil-mascota"
-                    name="perfil-mascota"
-                    type="url"
-                    placeholder="https://ejemplo.com/perfil"
-                    aria-describedby="perfil-ayuda"
-                  />
-                  <small id="perfil-ayuda">Opcional. Si tienes un perfil, enlace o documento de referencia.</small>
-                </div>
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend>Solicitud de atención</legend>
-
-              <div class="field-grid">
-                <div class="field">
-                  <label for="servicio">Servicio requerido *</label>
-                  <select id="servicio" name="servicio" required>
-                    <option value="">Selecciona un servicio</option>
-                    <option value="consulta">Consulta general</option>
-                    <option value="vacunacion">Vacunación</option>
-                    <option value="urgencia">Urgencias</option>
-                    <option value="laboratorio">Laboratorio</option>
-                    <option value="cirugia">Cirugía</option>
-                    <option value="otro">Otro</option>
-                  </select>
-                </div>
-
-                <div class="field">
-                  <label for="codigo-invitacion">Código de invitación</label>
-                  <input
-                    id="codigo-invitacion"
-                    name="codigo-invitacion"
-                    type="text"
-                    pattern="[A-Z0-9-]{4,12}"
-                    maxlength="12"
-                    placeholder="CP-2026"
-                    aria-describedby="codigo-ayuda"
-                  />
-                  <small id="codigo-ayuda">Ingrese un código si lo tiene.</small>
-                </div>
-
-                <div class="field field-full">
-                  <label for="buscar-servicio">Buscar servicio</label>
-                  <input id="buscar-servicio" name="buscar-servicio" type="search" list="servicios-favoritos" placeholder="Ej. vacunación, urgencia" />
-                  <datalist id="servicios-favoritos">
-                    <option value="Vacunación"></option>
-                    <option value="Urgencias"></option>
-                    <option value="Consulta general"></option>
-                    <option value="Laboratorio"></option>
-                    <option value="Cirugía"></option>
-                  </datalist>
-                </div>
-
-                <div class="field field-full">
-                  <label for="expectativas">¿Qué esperas aprender o resolver en esta cita? *</label>
-                  <textarea
-                    id="expectativas"
-                    name="expectativas"
-                    rows="5"
-                    required
-                    minlength="20"
-                    maxlength="300"
-                  ></textarea>
-                </div>
-
-                <div class="field">
-                  <label for="nivel-urgencia">Nivel de prioridad de atención</label>
-                  <input id="nivel-urgencia" name="nivel-urgencia" type="range" min="1" max="10" value="5" />
-                  <output for="nivel-urgencia" aria-live="polite">5 / 10</output>
-                </div>
-
-                <div class="field">
-                  <label for="color-preferido">Color favorito para la mascota</label>
-                  <input id="color-preferido" name="color-preferido" type="color" value="#7c9bff" />
-                </div>
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend>Preferencias y confirmaciones</legend>
-
-              <div class="field-grid">
-                <div class="field field-full">
-                  <label>Día preferido para la visita *</label>
-                  <div class="choices" role="radiogroup" aria-label="Día preferido para la visita">
-                    <label><input type="radio" name="dia-preferido" value="lunes" required /> Lunes</label>
-                    <label><input type="radio" name="dia-preferido" value="martes" /> Martes</label>
-                    <label><input type="radio" name="dia-preferido" value="miercoles" /> Miércoles</label>
-                    <label><input type="radio" name="dia-preferido" value="jueves" /> Jueves</label>
-                    <label><input type="radio" name="dia-preferido" value="viernes" /> Viernes</label>
+                    <div class="field">
+                      <label for="ciudad">Ciudad o barrio *</label>
+                      <input
+                        id="ciudad"
+                        name="ciudad"
+                        type="text"
+                        required
+                        minlength="3"
+                        maxlength="60"
+                        autocomplete="address-level2"
+                      />
+                    </div>
                   </div>
-                </div>
+                </fieldset>
 
-                <div class="field field-full">
-                  <label>Intereses y necesidades *</label>
-                  <div class="choices" role="group" aria-label="Intereses y necesidades">
-                    <label><input type="checkbox" name="interes" value="vacunacion" required /> Vacunación</label>
-                    <label><input type="checkbox" name="interes" value="control" /> Control general</label>
-                    <label><input type="checkbox" name="interes" value="urgencia" /> Urgencia</label>
-                    <label><input type="checkbox" name="interes" value="desparasitacion" /> Desparasitación</label>
-                    <label><input type="checkbox" name="interes" value="grooming" /> Grooming</label>
+                <fieldset>
+                  <legend>Datos de la mascota</legend>
+
+                  <div class="field-grid">
+                    <div class="field">
+                      <label for="mascota-nombre">Nombre de la mascota *</label>
+                      <input
+                        id="mascota-nombre"
+                        name="mascota-nombre"
+                        type="text"
+                        required
+                        minlength="2"
+                        maxlength="40"
+                      />
+                    </div>
+
+                    <div class="field">
+                      <label for="tipo-mascota">Tipo de mascota *</label>
+                      <select id="tipo-mascota" name="tipo-mascota" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="perro">Perro</option>
+                        <option value="gato">Gato</option>
+                        <option value="conejo">Conejo</option>
+                        <option value="ave">Ave</option>
+                        <option value="otro">Otro</option>
+                      </select>
+                    </div>
+
+                    <div class="field">
+                      <label for="edad-mascota">Edad de la mascota *</label>
+                      <input
+                        id="edad-mascota"
+                        name="edad-mascota"
+                        type="number"
+                        min="0"
+                        max="30"
+                        step="1"
+                        required
+                      />
+                    </div>
+
+                    <div class="field">
+                      <label for="fecha-nacimiento">Fecha de nacimiento</label>
+                      <input id="fecha-nacimiento" name="fecha-nacimiento" type="date" />
+                    </div>
+
+                    <div class="field">
+                      <label for="hora-llegada">Hora de llegada *</label>
+                      <input id="hora-llegada" name="hora-llegada" type="time" required />
+                    </div>
+
+                    <div class="field">
+                      <label for="peso">Peso aproximado (kg)</label>
+                      <input id="peso" name="peso" type="number" min="0.1" max="200" step="0.1" />
+                    </div>
+
+                    <div class="field field-full">
+                      <label for="perfil-mascota">Perfil de la mascota o historial breve</label>
+                      <input
+                        id="perfil-mascota"
+                        name="perfil-mascota"
+                        type="url"
+                        placeholder="https://ejemplo.com/perfil"
+                        aria-describedby="perfil-ayuda"
+                      />
+                      <small id="perfil-ayuda">Opcional. Si tienes un perfil, enlace o documento de referencia.</small>
+                    </div>
                   </div>
+                </fieldset>
+
+                <fieldset>
+                  <legend>Solicitud de atención</legend>
+
+                  <div class="field-grid">
+                    <div class="field">
+                      <label for="servicio">Servicio requerido *</label>
+                      <select id="servicio" name="servicio" required>
+                        <option value="">Selecciona un servicio</option>
+                        <option value="consulta">Consulta general</option>
+                        <option value="vacunacion">Vacunación</option>
+                        <option value="urgencia">Urgencias</option>
+                        <option value="laboratorio">Laboratorio</option>
+                        <option value="cirugia">Cirugía</option>
+                        <option value="otro">Otro</option>
+                      </select>
+                    </div>
+
+                    <div class="field">
+                      <label for="codigo-invitacion">Código de invitación</label>
+                      <input
+                        id="codigo-invitacion"
+                        name="codigo-invitacion"
+                        type="text"
+                        pattern="[A-Z0-9-]{4,12}"
+                        maxlength="12"
+                        placeholder="CP-2026"
+                        aria-describedby="codigo-ayuda"
+                      />
+                      <small id="codigo-ayuda">Ingrese un código si lo tiene.</small>
+                    </div>
+
+                    <div class="field field-full">
+                      <label for="buscar-servicio">Buscar servicio</label>
+                      <input id="buscar-servicio" name="buscar-servicio" type="search" list="servicios-favoritos" placeholder="Ej. vacunación, urgencia" />
+                      <datalist id="servicios-favoritos">
+                        <option value="Vacunación"></option>
+                        <option value="Urgencias"></option>
+                        <option value="Consulta general"></option>
+                        <option value="Laboratorio"></option>
+                        <option value="Cirugía"></option>
+                      </datalist>
+                    </div>
+
+                    <div class="field field-full">
+                      <label for="expectativas">¿Qué esperas aprender o resolver en esta cita? *</label>
+                      <textarea
+                        id="expectativas"
+                        name="expectativas"
+                        rows="5"
+                        required
+                        minlength="20"
+                        maxlength="300"
+                      ></textarea>
+                    </div>
+
+                    <div class="field">
+                      <label for="nivel-urgencia">Nivel de prioridad de atención</label>
+                      <input id="nivel-urgencia" name="nivel-urgencia" type="range" min="1" max="10" value="5" />
+                      <output for="nivel-urgencia" aria-live="polite">5 / 10</output>
+                    </div>
+
+                    <div class="field">
+                      <label for="color-preferido">Color favorito para la mascota</label>
+                      <input id="color-preferido" name="color-preferido" type="color" value="#7c9bff" />
+                    </div>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <legend>Preferencias y confirmaciones</legend>
+
+                  <div class="field-grid">
+                    <div class="field field-full">
+                      <label>Día preferido para la visita *</label>
+                      <div class="choices" role="radiogroup" aria-label="Día preferido para la visita">
+                        <label><input type="radio" name="dia-preferido" value="lunes" required /> Lunes</label>
+                        <label><input type="radio" name="dia-preferido" value="martes" /> Martes</label>
+                        <label><input type="radio" name="dia-preferido" value="miercoles" /> Miércoles</label>
+                        <label><input type="radio" name="dia-preferido" value="jueves" /> Jueves</label>
+                        <label><input type="radio" name="dia-preferido" value="viernes" /> Viernes</label>
+                      </div>
+                    </div>
+
+                    <div class="field field-full">
+                      <label>Intereses y necesidades *</label>
+                      <div class="choices" role="group" aria-label="Intereses y necesidades">
+                        <label><input type="checkbox" name="interes" value="vacunacion" required /> Vacunación</label>
+                        <label><input type="checkbox" name="interes" value="control" /> Control general</label>
+                        <label><input type="checkbox" name="interes" value="urgencia" /> Urgencia</label>
+                        <label><input type="checkbox" name="interes" value="desparasitacion" /> Desparasitación</label>
+                        <label><input type="checkbox" name="interes" value="grooming" /> Grooming</label>
+                      </div>
+                    </div>
+
+                    <div class="field field-full">
+                      <label for="documento">Documento médico o autorización *</label>
+                      <input
+                        id="documento"
+                        name="documento"
+                        type="file"
+                        accept=".pdf,.jpg,.jpeg,.png"
+                        required
+                        aria-describedby="documento-ayuda"
+                      />
+                      <small id="documento-ayuda">Formatos permitidos: PDF, JPG, PNG. Tamaño máximo recomendado: 5 MB.</small>
+                    </div>
+
+                    <div class="field field-full">
+                      <label for="comentarios">Comentarios adicionales</label>
+                      <textarea id="comentarios" name="comentarios" rows="4" maxlength="250"></textarea>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <div class="confirmations">
+                  <label class="checkbox-inline">
+                    <input type="checkbox" name="privacidad" required />
+                    Acepto la política de privacidad y el tratamiento de mis datos. *
+                  </label>
                 </div>
 
-                <div class="field field-full">
-                  <label for="documento">Documento médico o autorización *</label>
-                  <input
-                    id="documento"
-                    name="documento"
-                    type="file"
-                    accept=".pdf,.jpg,.jpeg,.png"
-                    required
-                    aria-describedby="documento-ayuda"
-                  />
-                  <small id="documento-ayuda">Formatos permitidos: PDF, JPG, PNG. Tamaño máximo recomendado: 5 MB.</small>
+                <div class="actions">
+                  <button type="reset" class="button secondary">Restablecer</button>
+                  <button type="submit" class="button primary">Enviar solicitud</button>
                 </div>
-
-                <div class="field field-full">
-                  <label for="comentarios">Comentarios adicionales</label>
-                  <textarea id="comentarios" name="comentarios" rows="4" maxlength="250"></textarea>
-                </div>
-              </div>
-            </fieldset>
-
-            <div class="confirmations">
-              <label class="checkbox-inline">
-                <input type="checkbox" name="privacidad" required />
-                Acepto la política de privacidad y el tratamiento de mis datos. *
-              </label>
+              </form>
             </div>
-
-            <div class="actions">
-              <button type="reset" class="button secondary">Restablecer</button>
-              <button type="submit" class="button primary">Enviar solicitud</button>
-            </div>
-          </form>
+          </section>
         </div>
-      </section>
+      </div>
     </main>
 
     <section id="ubicacion" class="section location-section">
@@ -476,6 +485,10 @@
       </div>
     </section>
 
+    <button type="button" class="floating-cta" data-open-modal aria-controls="reservaModal" aria-expanded="false">
+      Reservar cita
+    </button>
+
     <footer id="contacto" class="site-footer">
       <div class="container footer-grid">
         <div>
@@ -502,5 +515,41 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      const modal = document.getElementById('reservaModal');
+      const openButtons = document.querySelectorAll('[data-open-modal]');
+      const closeButtons = document.querySelectorAll('[data-close-modal]');
+
+      function openModal() {
+        if (!modal) return;
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        openButtons.forEach((button) => button.setAttribute('aria-expanded', 'true'));
+      }
+
+      function closeModal() {
+        if (!modal) return;
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+        openButtons.forEach((button) => button.setAttribute('aria-expanded', 'false'));
+      }
+
+      openButtons.forEach((button) => {
+        button.addEventListener('click', openModal);
+      });
+
+      closeButtons.forEach((button) => {
+        button.addEventListener('click', closeModal);
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal && modal.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
+    </script>
   </body>
 </html>

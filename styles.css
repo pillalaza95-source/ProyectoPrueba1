@@ -17,6 +17,8 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -32,8 +34,9 @@ body {
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -98,7 +101,7 @@ textarea {
 
 .brand span {
   color: var(--muted);
-  font-size: .72rem;
+  font-size: 0.72rem;
 }
 
 .brand-logo {
@@ -114,8 +117,6 @@ textarea {
   list-style: none;
   display: flex;
   gap: 1.25rem;
-  padding: 0;
-  margin: 0;
   flex-wrap: wrap;
 }
 
@@ -133,7 +134,7 @@ textarea {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   align-items: center;
 }
@@ -157,9 +158,14 @@ p {
 }
 
 h1 {
-  font-size: clamp(2.3rem, 5vw, 4rem);
+  font-size: clamp(2.2rem, 4vw + 1rem, 4rem);
   line-height: 1.08;
   margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 2vw + 1rem, 2.8rem);
+  line-height: 1.15;
 }
 
 .lead {
@@ -208,8 +214,6 @@ h1 {
 
 .hero-stats {
   list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 1.2rem;
@@ -223,11 +227,6 @@ h1 {
   border: 1px solid rgba(12, 124, 122, 0.12);
 }
 
-.hero-stats strong {
-  font-size: 1.4rem;
-  color: var(--primary-dark);
-}
-
 .hero-stats strong,
 .hero-stats span {
   display: block;
@@ -235,6 +234,7 @@ h1 {
 
 .hero-stats strong {
   font-size: 1.3rem;
+  color: var(--primary-dark);
 }
 
 .hero-visual {
@@ -254,8 +254,8 @@ h1 {
 .hero-card {
   position: relative;
   margin-top: -4rem;
-  margin-left: 1.5rem;
-  max-width: 88%;
+  margin-left: 0;
+  max-width: 100%;
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid var(--border);
   border-radius: 24px;
@@ -288,7 +288,7 @@ h1 {
 
 .split-layout {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   align-items: center;
 }
@@ -320,7 +320,7 @@ figcaption {
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.25rem;
   margin-top: 1.5rem;
 }
@@ -348,7 +348,7 @@ figcaption {
 
 .schedule-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.25rem;
 }
 
@@ -424,7 +424,7 @@ figcaption {
 
 .field-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.25rem;
 }
 
@@ -518,13 +518,82 @@ small {
   flex-wrap: wrap;
 }
 
+.floating-cta {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 40;
+  border: none;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  padding: 0.9rem 1.3rem;
+  font-weight: 700;
+  box-shadow: 0 16px 32px rgba(11, 122, 117, 0.28);
+  cursor: pointer;
+}
+
+.reservation-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  z-index: 80;
+}
+
+.reservation-modal.is-open {
+  display: flex;
+}
+
+.reservation-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 32, 0.68);
+}
+
+.reservation-dialog {
+  position: relative;
+  width: min(980px, 100%);
+  max-height: 92vh;
+  overflow: auto;
+  background: var(--surface);
+  border-radius: 28px;
+  box-shadow: 0 26px 60px rgba(15, 23, 32, 0.28);
+}
+
+.modal-close {
+  position: sticky;
+  top: 0.75rem;
+  left: calc(100% - 3rem);
+  z-index: 2;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(15, 23, 32, 0.75);
+  color: #fff;
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.reservation-form-section {
+  padding-top: 1rem;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
 .location-section {
   background: #fff;
 }
 
 .location-grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   align-items: center;
 }
@@ -560,7 +629,7 @@ small {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
@@ -581,17 +650,58 @@ small {
   color: #e9f2f7;
 }
 
-@media (max-width: 760px) {
+@media (min-width: 700px) {
   .hero-grid,
   .split-layout,
   .service-grid,
-  .field-grid,
   .schedule-grid,
   .location-grid,
+  .field-grid,
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .service-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .schedule-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .location-grid {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .field-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+
+  .hero-card {
+    margin-left: 1.5rem;
+    max-width: 88%;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1.3fr 0.7fr;
+  }
+}
+
+@media (min-width: 980px) {
+  .service-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .schedule-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
   .heading-row,
   .nav-wrapper,
   .actions {
@@ -607,13 +717,86 @@ small {
     padding-top: 3rem;
   }
 
-  .hero-card {
-    max-width: 100%;
-    margin-left: 0;
-  }
-
   .clinic-form {
     padding: 1rem;
+  }
+
+  .floating-cta {
+    right: 0.9rem;
+    bottom: 0.9rem;
+    padding: 0.8rem 1.1rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121a23;
+    --surface: #18252e;
+    --surface-alt: #1b2f38;
+    --primary: #4fc9c0;
+    --primary-dark: #78ddd5;
+    --primary-soft: rgba(79, 201, 192, 0.16);
+    --text: #edf5f7;
+    --muted: #b5c8d1;
+    --border: #2d404b;
+    --shadow: 0 18px 42px rgba(0, 0, 0, 0.3);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  .topbar {
+    background: rgba(18, 26, 35, 0.9);
+    border-bottom-color: var(--border);
+  }
+
+  .main-nav a,
+  .button.secondary,
+  .site-footer a,
+  .schedule-card,
+  .hero-card,
+  .about-image,
+  .clinic-form,
+  .service-item,
+  .schedule-card,
+  .map-card {
+    color: var(--text);
+  }
+
+  .button.secondary {
+    border-color: var(--border);
+    background: transparent;
+  }
+
+  .service-item,
+  .schedule-card,
+  .clinic-form,
+  .about-image,
+  .hero-card,
+  .map-card {
+    background: var(--surface);
+    border-color: var(--border);
+  }
+
+  .site-footer {
+    background: linear-gradient(135deg, #0a1218, #101d2b);
+    color: #edf5f7;
+  }
+
+  .choices label,
+  .checkbox-inline,
+  input,
+  select,
+  textarea {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: var(--border);
+    color: var(--text);
+  }
+
+  .reservation-dialog {
+    background: var(--surface);
   }
 }
 
