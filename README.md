@@ -1,27 +1,36 @@
 # ClinicPet
 
-Proyecto de bosquejo para una clínica veterinaria con enfoque en accesibilidad, HTML5 y diseño responsive.
+Proyecto final para una clínica veterinaria con enfoque en UX, accesibilidad y diseño moderno usando HTML5 + Bootstrap.
 
 ## Objetivo
-Crear una landing page y formulario accesible con validación nativa de HTML5, sin JavaScript, siguiendo los lineamientos de la prueba académica.
+Crear una landing page profesional con un formulario accesible, validación nativa de HTML5 y una experiencia de reserva clara para usuarios en dispositivos móviles y escritorio.
 
 ## Archivos principales
-- `index.html`: estructura del sitio y formulario.
-- `styles.css`: estilos del diseño responsive y visual.
-- `AUDITORIA-UX-ACCESIBILIDAD.md`: revisión de requisitos y accesibilidad.
+- `index.html`: estructura principal del sitio y formulario de reserva.
+- `styles.css`: estilos personalizados y ajustes de accesibilidad visual.
+- `AUDITORIA-UX-ACCESIBILIDAD.md`: documento de revisión de UX y accesibilidad.
+- `.github/workflows/deploy.yml`: configuración para desplegar en GitHub Pages.
+
+## Tecnologías usadas
+- HTML5 semántico.
+- Bootstrap 5.3.
+- CSS personalizado.
+- Validación nativa del navegador.
+- GitHub Pages para publicación.
 
 ## Requisitos atendidos
-- HTML5 y validación nativa.
 - Formulario accesible con labels, fieldset, legend y skip link.
-- Todos los tipos principales solicitados.
-- Diseño responsive y enfocado en usabilidad.
-- Auditoría de UX y accesibilidad documentada.
+- Uso de inputs HTML5 y validación nativa.
+- Diseño responsive con enfoque en usabilidad.
+- Modales con cierre por botón, fondo y tecla Escape.
+- Foco visible, contrastes adecuados y soporte para preferencia de reducción de movimiento.
+- Documentación de auditoría UX y accesibilidad incluida.
 
 ## Vista local
-Puede abrirse directamente en el navegador o servir con un pequeño servidor local:
+Se puede abrir directamente en el navegador o servir con un servidor local:
 
 ```bash
-python -m http.server 8000
+py -m http.server 8000
 ```
 
 Luego ir a:
@@ -30,5 +39,11 @@ Luego ir a:
 http://localhost:8000/
 ```
 
-## Publicación
-El proyecto está preparado para publicarse en GitHub Pages, usando la rama `main` y la carpeta raíz del proyecto.
+## Publicación en GitHub Pages
+El repositorio está preparado para desplegarse con GitHub Pages usando una GitHub Action. El sitio se publica desde la rama `main` o desde la carpeta raíz del proyecto.
+
+## Despliegue
+1. Haz push del repositorio.
+2. En GitHub, entra a Settings > Pages.
+3. Activa GitHub Pages desde la rama `main` y la carpeta raíz.
+4. La página quedará disponible en una URL pública.

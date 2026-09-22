@@ -1,16 +1,16 @@
 # Auditoría UX y accesibilidad - ClinicPet
 
 ## 1. Objetivo
-Revisar si la landing page y el flujo de reserva modal de la clínica veterinaria `ClinicPet` cumplen con los requisitos de accesibilidad, semántica HTML5, validación nativa y buenas prácticas de usabilidad.
+Revisar si la landing page de la clínica veterinaria `ClinicPet` cumple con los requisitos de accesibilidad, semántica HTML5, validación nativa y buenas prácticas de usabilidad. La versión final incorpora Bootstrap 5 para mejorar la estructura, la responsividad y la experiencia visual sin perder la intención académica del proyecto.
 
 ## 2. Requisitos revisados
 
 ### Requisitos funcionales
-- Formulario accesible con validación HTML5 y mejora progresiva mediante JavaScript.
-- HTML5 nativo para la validación.
-- Uso de todos los tipos de entrada solicitados: `text`, `email`, `password`, `number`, `tel`, `url`, `date`, `time`, `file`, `color`, `range`, `checkbox`, `radio`, `search`, `reset`, `submit`, además de `select`, `textarea`, `datalist` y `output`.
-- Labels asociados, `fieldset`, `legend`, y estructura semántica clara.
+- Formulario accesible con validación HTML5.
+- Uso de tipos de entrada como `text`, `email`, `number`, `tel`, `url`, `date`, `time`, `file`, `color`, `range`, `checkbox`, `radio`, `search`, `reset`, `submit`, además de `select`, `textarea`, `datalist` y `output`.
+- Labels asociados a cada campo, `fieldset` y `legend` para una semántica clara.
 - Idioma en español, título descriptivo y acceso rápido con skip link.
+- Diseño modernizado con Bootstrap y CSS personalizado.
 
 ### Requisitos de accesibilidad
 - Foco visible y navegación por teclado.
@@ -18,37 +18,35 @@ Revisar si la landing page y el flujo de reserva modal de la clínica veterinari
 - Atención a `prefers-reduced-motion`.
 - Mensajes de ayuda con `aria-describedby` y mensajes nativos del navegador.
 - Campos obligatorios marcados con `*`.
+- Modal con `role="dialog"`, `aria-modal`, `aria-labelledby` y `aria-hidden`.
 
 ### Requisitos de negocio
-- Apariencia moderna, con encabezado, introducción, servicios, CTA de reserva, modal de formulario y footer.
-- Tema coherente con una clínica veterinaria local.
-- Publicación para GitHub Pages.
+- Apariencia moderna para una clínica veterinaria.
+- Encabezado, hero, servicios, horarios, CTA y footer coherentes.
+- Reserva de cita desde un modal accesible.
+- Publicación en GitHub Pages.
 
-## 3. Resultados
+## 3. Resultado de la auditoría
 
 ### Cumple
-- El proyecto usa HTML semántico y JavaScript acotado para abrir y cerrar el modal de reserva.
-- La validación se apoya en HTML5: `required`, `min`, `max`, `minlength`, `maxlength`, `pattern`, `accept`, `type`, entre otros.
-- Se incorpora una estructura clara con `header`, `main`, `section`, `fieldset` y `footer`.
-- Se incluye un skip link para saltar al formulario.
-- Los inputs tienen labels asociados y el formulario usa agrupaciones semánticas.
-- El diseño es responsive para móvil y escritorio.
-- Se incluye una adaptación visual moderna para una clínica veterinaria.
-- Se atienden casos de movimiento reducido para accesibilidad.
-- El CTA principal y el botón flotante abren el formulario sin abandonar la página principal.
-- El modal usa `role="dialog"`, `aria-modal`, `aria-labelledby` y `aria-hidden`.
-- El modal puede cerrarse con el botón de cierre, el fondo de la ventana o la tecla `Escape`.
-- Se bloquea el desplazamiento del documento mientras el modal está abierto.
+- Se usa HTML semántico con `header`, `main`, `section`, `footer`, `fieldset` y `legend`.
+- El sitio mantiene validación nativa con atributos como `required`, `min`, `max`, `minlength`, `maxlength`, `pattern`, `accept` y `type`.
+- Bootstrap mejora la consistencia visual y la adaptación a móviles y escritorio.
+- El diseño sigue siendo claro, limpio y centrado en la conversión de citas.
+- El formulario cuenta con una estructura de ayuda y validación que funciona sin depender de librerías externas.
+- El modal de reserva se puede abrir y cerrar con un botón, el fondo y la tecla `Escape`.
+- La navegación por teclado y el foco visible se mantienen con buenas prácticas.
+- Se aplica reducción de movimiento para usuarios con preferencias de accesibilidad.
 
 ### Puntos a controlar
-- El tamaño máximo real del archivo de `type="file"` no puede validarse solo con HTML5; esa validación requiere servidor o JavaScript.
-- El `output` visual puede requerir comportamiento dinámico para reflejar cambios en tiempo real; en este caso se presenta como valor accesible estático para mantener el enfoque sin scripts.
-- El modal todavía requiere una gestión avanzada del foco para devolverlo automáticamente al botón que lo abrió y mantenerlo dentro del diálogo durante la navegación por teclado.
+- La validación del tamaño del archivo en `type="file"` requiere validación adicional del servidor o del lado del cliente.
+- El `output` dinámico de rango puede necesitar refinamiento visual para reflejar cambios en tiempo real en futuras iteraciones.
+- El foco del modal puede mejorar aún más para una navegación completamente robusta con teclado.
 
-## 4. Riesgos
-- Si se quiere validar el peso del archivo en el navegador, se necesitaría lógica del lado del cliente o del servidor.
-- Si se decide añadir interacciones complejas o mensajes personalizados, sería necesario una capa JavaScript o una validación del backend.
-- La reserva no envía datos a un backend real porque el formulario conserva `action="#"`; actualmente funciona como prototipo visual y académico.
+## 4. Riesgos y mejoras futuras
+- Si se quiere validar archivos con peso máximo real, será necesario backend o JavaScript adicional.
+- Si se desea una experiencia más avanzada de reserva, se sugerirá conexión con un servicio real de envío de formularios.
+- Para una publicación definitiva, conviene preparar texto de contacto real y datos del negocio.
 
 ## 5. Conclusión
-La propuesta de `ClinicPet` cumple con el marco solicitado para una entrega académica de formulario accesible, HTML5 y diseño moderno. La última versión incorpora una reserva modal que reduce el ruido visual de la landing page y mantiene el CTA disponible mediante un botón flotante. Tiene una base sólida para ser publicada y mejorada con contenido real de la clínica en futuras iteraciones.
+`ClinicPet` cumple con la intención de una landing page accesible, clara y moderna. La incorporación de Bootstrap no afecta la base semántica ni la validación nativa, y mejora la calidad visual del proyecto. El resultado queda listo para ser desplegado y presentado como una web profesional de una clínica veterinaria.
